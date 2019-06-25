@@ -1,0 +1,74 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ git_project_name }}
+  labels:
+    dns: {{ dns_address }}
+    contextRoot: ""
+    type: ma
+    subnet: "Inside"
+    security_group: "InHTTPSELB"
+    deployment: pre-release
+spec:
+  ports:
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: {{ git_project_name }}
+    sha: "{{ docker_version[0:7] }}"
+  type: LoadBalancer
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ git_project_name }}
+  labels:
+    app: {{ git_project_name }}
+    sha: "{{ docker_version }}"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: {{ git_project_name }}
+        sha: "{{ docker_version[0:7] }}"
+    spec:
+      containers:
+      - name: {{ git_project_name }}
+        image: "{{ docker_registry }}/grafana-webapp:{{ docker_version }}"
+        resources:
+          requests:
+            cpu: "10m"
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        volumeMounts:
+        - name: {{ webapp_cert }}
+          mountPath: "/var/run/secrets/kubernetes.io/{{ webapp_cert }}"
+          readOnly: true
+        env:
+        - name: PROTOCOL
+          value: "https"
+        - name: DOMAIN
+          value: {{ dns_address }}
+        - name: ADMIN_USER
+          value: "admin"
+        - name: ADMIN_PASSWORD
+          value: "admin"
+        - name: SSL_CERT_FILE
+          value: /var/run/secrets/kubernetes.io/{{ webapp_cert }}/server.crt
+        - name: SSL_KEY_FILE
+          value: /var/run/secrets/kubernetes.io/{{ webapp_cert }}/server.key
+      volumes:
+      - name: {{ webapp_cert }}
+        secret:
+          secretName: {{ webapp_cert }}
+      imagePullSecrets:
+      - name: regsecret
+  selector:
+    matchLabels:
+      sha: "{{ docker_version }}"
+      app: {{ git_project_name }}
