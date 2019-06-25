@@ -1,0 +1,107 @@
+t=2019-06-25T15:36:23+0000 lvl=warn msg="[Removed] Session setting was removed in v6.2, use remote_cache option instead" logger=settings
+t=2019-06-25T15:36:23+0000 lvl=info msg="Starting Grafana" logger=server version=6.2.4 commit={SHA} branch=HEAD compiled=2019-06-18T10:39:19+0000
+t=2019-06-25T15:36:23+0000 lvl=info msg="Config loaded from" logger=settings file=/grafana/conf/defaults.ini
+t=2019-06-25T15:36:23+0000 lvl=info msg="Path Home" logger=settings path=/grafana
+t=2019-06-25T15:36:23+0000 lvl=info msg="Path Data" logger=settings path=/grafana/data
+t=2019-06-25T15:36:23+0000 lvl=info msg="Path Logs" logger=settings path=/grafana/logs
+t=2019-06-25T15:36:23+0000 lvl=info msg="Path Plugins" logger=settings path=/grafana/plugins
+t=2019-06-25T15:36:23+0000 lvl=info msg="Path Provisioning" logger=settings path=/grafana
+t=2019-06-25T15:36:23+0000 lvl=info msg="App mode production" logger=settings
+t=2019-06-25T15:36:23+0000 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-06-25T15:36:23+0000 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-06-25T15:36:23+0000 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_org_id - v1-7"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_code - v1-7"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_status - v1-7"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update temp_user table charset"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create star table"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index star.user_id_dashboard_id"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create org table v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_org_name - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create org_user table v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_org_user_org_id - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_org_user_org_id_user_id - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update org table charset"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update org_user table charset"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Migrate all Read Only Viewers to Viewers"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard table"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="add index dashboard.account_id"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_account_id_slug"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_tag table"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_tag.dasboard_id_term"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_dashboard_tag_dashboard_id_term - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table dashboard to dashboard_v1 - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_org_id - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_org_id_slug - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="copy dashboard v1 to v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="drop table dashboard_v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="alter dashboard.data to mediumtext v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column updated_by in dashboard - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column created_by in dashboard - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column gnetId in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for gnetId in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column plugin_id in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for plugin_id in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add index for dashboard_id in dashboard_tag"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard table charset"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard_tag table charset"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column folder_id in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column isFolder in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column has_acl in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column uid in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update uid column values in dashboard"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index dashboard_org_id_uid"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Remove unique index org_id_slug"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update dashboard title length"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add unique index for dashboard_org_id_title_folder_id"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_provisioning"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table dashboard_provisioning to dashboard_provisioning_tmp_qwerty - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create dashboard_provisioning v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_provisioning_dashboard_id - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_provisioning_dashboard_id_name - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="copy dashboard_provisioning v1 to v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="drop dashboard_provisioning_tmp_qwerty"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add check_sum column"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create data_source table"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="add index data_source.account_id"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="add unique index data_source.account_id_name"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_data_source_account_id - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_data_source_account_id_name - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Rename table data_source to data_source_v1 - v1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create data_source table v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index IDX_data_source_org_id - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="create index UQE_data_source_org_id_name - v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="copy data_source v1 to v2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Drop old table data_source_v1 #2"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add column with_credentials"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add secure json data column"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update data_source table charset"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Update initial version to 1"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Add read_only data column"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Executing migration" logger=migrator id="Migrate logging ds to loki ds"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing LoginService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing HooksService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing SearchService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing TracingService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-06-25T15:36:24+0000 lvl=eror msg="Can't read alert notification provisioning files from directory" logger=provisioning.notifiers path=/grafana/notifiers error="open /grafana/notifiers: no such file or directory"
+t=2019-06-25T15:36:24+0000 lvl=info msg="Initializing Stream Manager"
+t=2019-06-25T15:36:24+0000 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=https subUrl= socket=
+2019/06/25 15:36:31 http: TLS handshake error from {IP1}:{PORT1}: EOF
+2019/06/25 15:36:31 http: TLS handshake error from {IP2}:{PORT2}: EOF
+2019/06/25 15:36:31 http: TLS handshake error from {IP3}:{PORT3}: EOF
+2019/06/25 15:36:31 http: TLS handshake error from {IP4}:{PORT4}: EOF
+2019/06/25 15:36:31 http: TLS handshake error from {IP5}:{PORT5}: EOF
